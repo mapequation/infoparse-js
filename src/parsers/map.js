@@ -18,7 +18,6 @@ export default function (lines, parseModules = true, parseLinks = true) {
     if (line.startsWith("*")) {
       const match = line.match(/^\*(modules|nodes|links)/i);
       context = match ? match[1].toLowerCase() : "";
-      console.log(context);
     } else if (context === "modules" && parseModules) {
       const match = line.match(/(\d+) "(.+)" (\d(?:\.\d+)?) (\d(?:\.\d+)?)/);
       if (match) {
