@@ -1,12 +1,12 @@
-export { parseClu } from "./clu";
-export { parseFTree } from "./ftree";
-export { parseMap } from "./map";
-export { parseTree } from "./tree";
+export { parseClu } from "./parsers/clu";
+export { parseFTree } from "./parsers/ftree";
+export { parseMap } from "./parsers/map";
+export { parseTree } from "./parsers/tree";
 
-import parseClu from "./clu";
-import parseFTree from "./ftree";
-import parseMap from "./map";
-import parseTree from "./tree";
+import parseClu from "./parsers/clu";
+import parseFTree from "./parsers/ftree";
+import parseMap from "./parsers/map";
+import parseTree from "./parsers/tree";
 
 
 export const parsers = {

@@ -1,4 +1,4 @@
-import matchCodelength from "./codelength";
+import matchCodelength from "../codelength";
 
 
 export default function (lines) {
