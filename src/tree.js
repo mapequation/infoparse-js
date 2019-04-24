@@ -15,7 +15,7 @@ export default function (lines) {
     if (match) {
       const [_, path, flow, name, id, physId] = match;
       result.nodes.push({
-        path: path.split(":").map(Number),
+        path,
         flow: +flow,
         name,
         id: physId ? +physId : +id,
