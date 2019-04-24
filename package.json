@@ -1,8 +1,15 @@
 {
-  "name": "infoparse",
-  "version": "1.0.0",
+  "name": "@mapequation/infoparse",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Parse Infomap output to JS object",
   "main": "dist/infoparse.js",
+  "files": [
+    "src/**/*.js",
+    "dist/infoparse.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
@@ -18,7 +25,7 @@
     "map equation"
   ],
   "author": "Anton Eriksson",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mapequation/infoparse-js/issues"
   },
