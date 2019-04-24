@@ -13,12 +13,12 @@ export default function (lines) {
     }
     const match = line.match(/(\d+) (\d+) (\d(?:\.\d+)?)(?: (\d+))?/);
     if (match) {
-      let [_, id, module, flow, physId] = match;
+      let [_, id, cluster, flow, physId] = match;
       physId = +physId;
       id = +id;
       const stateId = physId ? id : null;
       result.nodes.push({
-        path: [module, stateId || physId],
+        cluster: +cluster,
         flow: +flow,
         name: id.toString(),
         id: physId ? physId : id,
