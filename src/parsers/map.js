@@ -43,11 +43,11 @@ export default function (lines, parseModules = true, parseLinks = true) {
     } else if (context === "links" && parseLinks) {
       const match = line.match(/(\d+) (\d+) (\d(?:\.\d+)?)/);
       if (match) {
-        const [_, sourceId, targetId, weight] = match;
+        const [_, sourceId, targetId, flow] = match;
         result.links.push({
           sourceId: +sourceId,
           targetId: +targetId,
-          weight: +weight,
+          flow: +flow,
         });
       }
     }
