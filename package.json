@@ -1,6 +1,6 @@
 {
   "name": "@mapequation/infoparse",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "publishConfig": {
     "access": "public"
   },
@@ -8,13 +8,15 @@
   "main": "dist/infoparse.js",
   "files": [
     "src/**/*.js",
-    "dist/infoparse.js"
+    "dist/infoparse.js",
+    "dist/infoparse-cli.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
+    "watch": "webpack --watch --config webpack-cli.config.js",
     "build": "webpack",
-    "start": "node ./dist/infoparse.js"
+    "build-cli": "webpack --config webpack-cli.config.js",
+    "start": "node ./dist/infoparse-cli.js"
   },
   "repository": {
     "type": "git",

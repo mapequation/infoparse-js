@@ -20,4 +20,3 @@ export const validExtensions = Object.keys(parsers);
 export const isValidExtension = ext => validExtensions.includes(ext);
 
 export const getParserForExtension = ext => parsers[ext];
-
