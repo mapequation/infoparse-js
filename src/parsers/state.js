@@ -23,10 +23,10 @@ export default function (lines, parseLinks = true) {
     } else if (context === "states") {
       const match = line.match(/(\d+) (\d+)(?: "(.+)")?/);
       if (match) {
-        const [_, id, physId, name] = match;
+        const [_, id, physicalId, name] = match;
         result.states.push({
           id: +id,
-          physId: +physId,
+          physicalId: +physicalId,
           name,
         });
       }
