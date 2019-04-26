@@ -30,7 +30,7 @@ export default function (lines, parseModules = true, parseLinks = true) {
         });
       }
     } else if (context === "nodes") {
-      const match = line.match(/(\d(?::\d)+) "(.+)" (\d(?:\.\d+)?)/);
+      const match = line.match(/(\d(?::\d+)+) "(.+)" (\d(?:\.\d+)?)/);
       if (match) {
         const [_, path, name, flow] = match;
         result.nodes.push({
