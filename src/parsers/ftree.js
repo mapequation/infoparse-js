@@ -1,5 +1,6 @@
 import matchCodelength from "../codelength";
 import matchTree from "./matchers/tree";
+import matchLink from "./matchers/link";
 
 
 export default function (lines, parseLinks = true) {
@@ -43,7 +44,7 @@ export default function (lines, parseLinks = true) {
           });
         }
       } else if (context === "links" && currentModule) {
-        const match = line.match(/(\d+) (\d+) (\d(?:\.\d+)?)/);
+        const match = matchLink(line);
         if (match) {
           const [_, source, target, flow] = match;
           currentModule.links.push({
