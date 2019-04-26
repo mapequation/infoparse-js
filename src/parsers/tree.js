@@ -1,4 +1,5 @@
 import matchCodelength from "../codelength";
+import matchTree from "./matchers/tree";
 
 
 export default function (lines) {
@@ -11,7 +12,7 @@ export default function (lines) {
     if (!result.codelength) {
       result.codelength = matchCodelength(line);
     }
-    const match = line.match(/(\d(?::\d+)+) (\d(?:\.\d+)?) "(.+)" (\d+)(?: (\d+))?/);
+    const match = matchTree(line);
     if (match) {
       const [_, path, flow, name, id, physId] = match;
       result.nodes.push({

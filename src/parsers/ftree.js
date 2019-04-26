@@ -1,4 +1,5 @@
 import matchCodelength from "../codelength";
+import matchTree from "./matchers/tree";
 
 
 export default function (lines, parseLinks = true) {
@@ -30,7 +31,7 @@ export default function (lines, parseLinks = true) {
           result.modules.push(currentModule);
         }
       } else if (context === "nodes") {
-        const match = line.match(/(\d(?::\d+)+) (\d(?:\.\d+)?) "(.+)" (\d+)(?: (\d+))?/);
+        const match = matchTree(line);
         if (match) {
           const [_, path, flow, name, id, physId] = match;
           result.nodes.push({
