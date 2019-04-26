@@ -18,7 +18,7 @@ export default function (lines, parseLinks = true) {
         result.codelength = matchCodelength(line);
       }
       if (line.startsWith("*") && parseLinks) {
-        const match = line.match(/^\*(links) (root|\d(?::\d)*) (\d(?:\.\d+)?) (\d+) (\d+)/i);
+        const match = line.match(/^\*(links) (root|\d+(?::\d+)*) (\d+(?:\.\d+)?) (\d+) (\d+)/i);
         if (match) {
           let [_, links, path, exitFlow, numEdges, numChildren] = match;
           context = links.toLowerCase();

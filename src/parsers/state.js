@@ -31,7 +31,7 @@ export default function (lines, parseLinks = true) {
         });
       }
     } else if (context === "links" && parseLinks) {
-      const match = line.match(/(\d+) (\d+)(?: (\d(?:\.\d+)?))?/);
+      const match = line.match(/(\d+) (\d+)(?: (\d+(?:\.\d+)?))?/);
       if (match) {
         const [_, source, target, weight] = match;
         result.links.push({
