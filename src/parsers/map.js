@@ -1,4 +1,4 @@
-import matchCodelength from "../codelength";
+import matchCodelength from "./matchers/codelength";
 import matchLink from "./matchers/link";
 
 
