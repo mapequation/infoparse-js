@@ -1,3 +1,5 @@
+import matchLink from "./matchers/link";
+
 export default function (lines, parseLinks = true) {
   const result = {
     vertices: [],
@@ -31,7 +33,7 @@ export default function (lines, parseLinks = true) {
         });
       }
     } else if (context === "links" && parseLinks) {
-      const match = line.match(/(\d+) (\d+)(?: (\d+(?:\.\d+)?))?/);
+      const match = matchLink(line);
       if (match) {
         const [_, source, target, weight] = match;
         result.links.push({

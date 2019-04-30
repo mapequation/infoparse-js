@@ -11,7 +11,7 @@ export default function (lines) {
     if (!result.codelength) {
       result.codelength = matchCodelength(line);
     }
-    const match = line.match(/(\d+) (\d+) (\d+(?:\.\d+)?)(?: (\d+))?/);
+    const match = line.match(/(\d+) (\d+) ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)(?: (\d+))?/);
     if (match) {
       let [_, id, cluster, flow, physId] = match;
       physId = +physId;

@@ -20,7 +20,7 @@ export default function (lines, parseModules = true, parseLinks = true) {
       const match = line.match(/^\*(modules|nodes|links)/i);
       context = match ? match[1].toLowerCase() : "";
     } else if (context === "modules" && parseModules) {
-      const match = line.match(/(\d+) "(.+)" (\d+(?:\.\d+)?) (\d+(?:\.\d+)?)/);
+      const match = line.match(/(\d+) "(.+)" ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?) ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)/);
       if (match) {
         const [_, module, name, flow, exitFlow] = match;
         result.modules.push({
@@ -31,7 +31,7 @@ export default function (lines, parseModules = true, parseLinks = true) {
         });
       }
     } else if (context === "nodes") {
-      const match = line.match(/(\d+(?::\d+)+) "(.+)" (\d+(?:\.\d+)?)/);
+      const match = line.match(/(\d+(?::\d+)+) "(.+)" ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)/);
       if (match) {
         const [_, path, name, flow] = match;
         result.nodes.push({
