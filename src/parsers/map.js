@@ -2,7 +2,7 @@ import matchCodelength from "./matchers/codelength";
 import matchLink from "./matchers/link";
 
 
-export default function (lines, parseModules = true, parseLinks = true) {
+export default function (lines, parseLinks = true, parseModules = true) {
   const result = {
     codelength: null,
     modules: [],
