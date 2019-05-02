@@ -10,11 +10,12 @@ if (process.argv.length < 3) {
 
 const args = process.argv.slice(2);
 const filename = args.shift();
+const format = args.shift() || null;
 
-readFile(filename, "utf8", parse(filename));
+readFile(filename, "utf8", parse(filename, format));
 
-function parse(filename) {
-  const ext = extname(filename).substring(1);
+function parse(filename, format = null) {
+  const ext = format || extname(filename).substring(1);
   const parser = getParserForExtension(ext);
   return (err, data) => {
     if (err) throw err;

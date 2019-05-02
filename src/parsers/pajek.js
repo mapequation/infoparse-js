@@ -1,10 +1,8 @@
 import matchLink from "./matchers/link";
 
-
 export default function (lines, parseLinks = true) {
   const result = {
     vertices: [],
-    states: [],
     links: [],
   };
 
@@ -12,7 +10,7 @@ export default function (lines, parseLinks = true) {
 
   lines.forEach((line) => {
     if (line.startsWith("*")) {
-      const match = line.match(/^\*(vertices|states|links)/i);
+      const match = line.match(/^\*(vertices|edges|arcs)/i);
       context = match ? match[1].toLowerCase() : "";
     } else if (context === "vertices") {
       const match = line.match(/(\d+) "(.+)"/);
@@ -23,17 +21,7 @@ export default function (lines, parseLinks = true) {
           name,
         });
       }
-    } else if (context === "states") {
-      const match = line.match(/(\d+) (\d+)(?: "(.+)")?/);
-      if (match) {
-        const [_, id, physicalId, name] = match;
-        result.states.push({
-          id: +id,
-          physicalId: +physicalId,
-          name,
-        });
-      }
-    } else if (context === "links" && parseLinks) {
+    } else if (parseLinks && (context === "edges" || context === "arcs")) {
       const match = matchLink(line);
       if (match) {
         const [_, source, target, weight] = match;

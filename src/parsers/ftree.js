@@ -1,6 +1,6 @@
 import matchCodelength from "./matchers/codelength";
-import matchTree from "./matchers/tree";
 import matchLink from "./matchers/link";
+import matchTree from "./matchers/tree";
 
 
 export default function (lines, parseLinks = true) {
