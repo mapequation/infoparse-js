@@ -7,25 +7,31 @@ export default function (lines) {
     nodes: [],
   };
 
-  lines.forEach((line) => {
+  let nodeNumber = 1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
     if (!result.codelength) {
       result.codelength = matchCodelength(line);
+      if (result.codelength) continue;
     }
-    const match = line.match(/(\d+) (\d+) ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)(?: (\d+))?/);
+
+    const match = line.match(/(\d+)(?: (\d+)(?: ([0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)(?: (\d+))?)?)?/);
     if (match) {
-      let [_, id, cluster, flow, physId] = match;
-      physId = +physId;
-      id = +id;
-      const stateId = physId ? id : null;
+      let [_, id, module, flow, physId] = match;
+      [module, id] = module ? [+module, +id] : [+id, nodeNumber];
+
       result.nodes.push({
-        cluster: +cluster,
-        flow: +flow,
-        name: id.toString(),
-        id: physId ? physId : id,
-        stateId,
+        id: physId ? +physId : id,
+        module,
+        flow: flow ? +flow : null,
+        stateId: physId ? id : null,
       });
+
+      nodeNumber++;
     }
-  });
+  }
 
   return result;
 }
