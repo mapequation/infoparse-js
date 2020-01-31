@@ -14,13 +14,14 @@ export default function (lines) {
     }
     const match = matchTree(line);
     if (match) {
-      const [_, path, flow, name, id, physId] = match;
+      const [_, path, flow, name, id, physId, layerId] = match;
       result.nodes.push({
         path,
         flow: +flow,
         name,
         id: physId ? +physId : +id,
         stateId: physId ? +id : null,
+        layerId: layerId ? +layerId : null,
       });
     }
   });
